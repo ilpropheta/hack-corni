@@ -88,8 +88,8 @@ static int Sort(std::vector<int>& v)
         auto where = std::find_if_not(head, end(v), [&](auto i){
             return i == *head;
         });
-        maxv = max(maxv, {*head, distance(head, where)}, [](auto p1, auto p2){
-            return tie(p1.second, p2.first) < tie(p2.second, p1.first);
+        maxv = std::max(maxv, {*head, distance(head, where)}, [](auto p1, auto p2){
+            return std::tie(p1.second, p2.first) < std::tie(p2.second, p1.first);
         });
         if (where == end(v))
             break;
